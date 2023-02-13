@@ -3,11 +3,11 @@
     alt="logo">
   <h1><a routerLink="/home">Apna Market</a> </h1>
   <div class="nav-search">
-    <input type="text" placeholder="Search Products" (keyup)="searchProduct($event)" (blur)="hideSearch()"/>
+    <input #searchInput type="text" placeholder="Search Products" (keyup)="searchProduct($event)" (blur)="hideSearch()"/>
     <button class="btnsearch"><i class="fa-brands fa-searchengin"></i></button>
     <ul id="suggested-search" *ngIf="searchResult">
       <li *ngFor="let item of searchResult">
-        <a>{{item.title}}</a>
+        <a (mousedown)="redirectToDetails(item.id)">{{item.title}}</a>
       </li>
     </ul>
   </div>

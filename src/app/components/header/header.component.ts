@@ -17,6 +17,7 @@ export class HeaderComponent implements OnInit {
   searchResult:productsObj[] | undefined;
   cart : cart[] = []
   myLength:any
+  val: any;
   constructor(private products:ProductService,
     private route : Router , private popUp: NgToastService , private appService:AppServiceService) { }
 
@@ -69,21 +70,20 @@ export class HeaderComponent implements OnInit {
     if(query){
       const element = query.target as HTMLInputElement;
       this.appService.SearchProducts(element.value).subscribe(result=>{
-        console.log(result)
-        result.length = 5
+        if(result.length>5){
+          result.length=length
+        }
         this.searchResult = result.products
-      })
-    }
-  }
+      })}}
 
   hideSearch(){
     this.searchResult = undefined
   }
 
 
-  menuToggle() {
-    const toggleMenu = document.querySelector(".menu");
-   toggleMenu && toggleMenu.classList.toggle("active");
+  redirectToDetails(id:number){
+    this.route.navigate(['/details',id])
   }
+
 
 }
