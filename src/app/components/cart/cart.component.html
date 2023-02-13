@@ -1,0 +1,61 @@
+
+<div class="card" >
+    <div class="row">
+        <div class="col-md-8 cart">
+            <div class="title">
+                <div class="row">
+                    <div class="col">
+                        <h4><b>My Cart</b></h4>
+                    </div>
+                    <div class="col align-self-center text-right text-muted"><b>Quantity :</b> <b> &nbsp;{{cartData?.length}}</b></div>
+                </div>
+            </div>
+            <div class="row border-top border-bottom" *ngFor="let item of cartData">
+                <div class="row main align-items-center">
+                    <div class="col-2"><img class="img-fluid" src="{{item.thumbnail}}"></div>
+                    <div class="col">
+                        <div class="row text-muted">{{item.title}}</div>
+                        <div class="row">{{item.quantity}}</div>
+                    </div>
+                    <div class="col">
+                        <div class="row"><b>Brand</b></div>
+                            <a>{{item.brand}}</a>
+                    </div>
+                    <div class="col">
+                        <div class="row"><b>Price</b></div>
+                        <a>$ {{item.price}}</a>
+                    </div>
+                    <span class="close">
+                        <button mat-raised-button color="warn" (click)="removeToCart(item.id)">Remove</button>
+                    </span>
+                </div>
+            </div>
+
+            
+        </div>
+        <div class="col-md-4 summary">
+            <div>
+                <h5><b>Summary</b></h5>
+            </div>
+            <hr>
+            <div class="row text-center">
+                <div class="col" style="padding-left:0; margin-left: 34%;"><b>Quantity :</b> <b> &nbsp;{{cartData?.length}}</b></div>
+                <div class="col text-right"></div>
+            </div>
+            <form>
+                <p><b>SHIPPING TYPE : </b></p>
+                <select>
+                    <option class="text-muted">Standard-Delivery- &#8377;{{priceSummary.delivery}}</option>
+                </select>
+                <p><b>Discount : </b></p>
+                    <div>&#8377; {{priceSummary.discount}}</div>
+            </form>
+            <div class="row" style="border-top: 1px solid rgba(0,0,0,.1); padding: 2vh 0;">
+                <div class="col"> <b>TOTAL PRICE</b> </div>
+                <div class="col text-right">&#8377; {{priceSummary.total}}</div>
+            </div>
+            <button class="btn" (click)="checkout()">CHECKOUT</button>
+        </div>
+    </div>
+
+</div>

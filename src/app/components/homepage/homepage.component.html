@@ -1,0 +1,66 @@
+<ngb-carousel *ngIf="mainProducts">
+	<ng-template *ngFor="let item of mainProducts" ngbSlide>
+		<div class="picsum-img-wrapper">
+			<a [routerLink]="['/details',item.id]"  ><img class="product-header-image" src="{{item.thumbnail}}" alt="Random first slide" /></a>
+		</div>
+		<div class="carousel-caption">
+			<h3>{{item.title}}</h3>
+			<p>{{item.description}}</p>
+		</div>
+	</ng-template>
+</ngb-carousel>
+
+  <div class="deals text-center" >
+    <div class="phones">
+      <h2 class="my-2">Deals of the Day</h2>
+
+      <div class="cards">
+
+        <div class="card-items" routerLink="/smartphones">
+            <img src="https://i.dummyjson.com/data/products/3/1.jpg" alt="" width="200px">
+            <hr>
+            <div class="lines">
+                <p class="text-center my-1"><b>Smartphones</b></p>
+                <p class="text-center my-1">min 15% off</p>
+                <p class="text-center my-1">Grab Now!</p>
+            </div>
+        </div>
+        <div class="card-items" routerLink="/laptops">
+            <img src="https://i.dummyjson.com/data/products/6/2.jpg" alt="" width="200px">
+            <hr>
+            <div class="lines">
+                <p class="text-center my-1"><b>Laptops</b></p>
+                <p class="text-center my-1">min 13% off</p>
+                <p class="text-center my-1">Grab Now!</p>
+            </div>
+        </div>
+        <div class="card-items" routerLink="/fragrances">
+            <img src="https://i.dummyjson.com/data/products/12/3.png" alt="" width="200px">
+            <hr>
+            <div class="lines">
+                <p class="text-center my-1"><b>Perfumes</b></p>
+                <p class="text-center my-1">min 10% off</p>
+                <p class="text-center my-1">Grab Now!</p>
+            </div>
+        </div>
+        <div class="card-items" routerLink="/skincare"> 
+            <img src="https://i.dummyjson.com/data/products/17/thumbnail.jpg" alt="" width="200px">
+            <hr>
+            <div class="lines">
+                <p class="text-center my-1"><b>Skin Care</b></p>
+                <p class="text-center my-1">min 15% off</p>
+                <p class="text-center my-1">Grab Now!</p>
+            </div>
+        </div>
+        <div class="card-items" routerLink="/homedecoration">
+            <img src="https://i.dummyjson.com/data/products/26/thumbnail.jpg" alt="" width="200px">
+            <hr>
+            <div class="lines">
+                <p class="text-center my-1"><b>Home Decoration</b></p>
+                <p class="text-center my-1">min 18% off</p>
+                <p class="text-center my-1">Grab Now!</p>
+            </div>
+        </div>
+      
+    </div>
+  </div>

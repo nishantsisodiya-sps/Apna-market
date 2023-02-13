@@ -1,0 +1,62 @@
+/* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+    min-height: 100vh;
+    max-height: 100vh;
+    overflow: scroll;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.bost {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.card {
+    background-color: azure;
+    margin-top: 6%;
+}
+
+.sidebar {
+    background-color: white;
+    width: 15%;
+    position: fixed;
+}
+
+mat-expansion-panel {
+    background-color: whitesmoke;
+}
+
+#btnback {
+    position: absolute;
+    right: 1%;
+    top: 1%;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+footer {
+    /* position: fixed; */
+    Width: 100%;
+    top: auto;
+    bottom: 0%;
+    font-size: large;
+    margin-top: auto;
+}
+.carousel-caption {
+    background-color: #0000007d;
+    border-radius: 10px;
+  }
+  .carousel-control-next-icon, .carousel-control-prev-icon{
+    background-color: black;
+    border-radius: 5px;
+  }

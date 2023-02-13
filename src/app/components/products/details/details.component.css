@@ -1,0 +1,9 @@
+.masters{
+    display: flex;
+    justify-content: center;
+}
+#btnback{
+    position: absolute;
+    right: 1%;
+    top: 1%;
+}

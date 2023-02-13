@@ -1,0 +1,44 @@
+.checkout h1{
+    text-align:center;
+    margin-top: 10px;
+    margin-bottom: 50px;
+}
+.checkout h3{
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+.checkout{
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+.myDiv{
+  background-color: rgb(208 196 211 / 17%);
+  height: 33em;
+  width: 60em;
+  margin-top: 2%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+input{
+  height: 3em;
+  width: 25em;
+  margin-top: 2%;
+  border: 2px solid grey;
+  border-radius: 1em;
+}
+.message-p{
+  color: red;
+  font-size: large;
+}
+.spinner_container {
+  border-radius: 10px;
+  height: 70px;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  width: 70px;
+  z-index: 3;
+  opacity: 0.5;
+}

@@ -1,0 +1,24 @@
+<div class="row product-details" *ngFor="let item of products">
+    <div class="col-sm-6">
+    <img  class="product-img" src="{{item.thumbnail}}" alt="">
+    </div>
+    <div class="col-sm-6">
+        <div class="details">
+            <h1> <b>{{item.title}}</b></h1>
+            <h3> <b>Price</b>  : {{item.price}}</h3>
+            <h3> <b>Discount</b>  : {{item.discountPercentage}}</h3>
+            <h3> <b>Category</b>  : {{item.category}}</h3>
+            <h3> <b>Description</b>  : {{item.description}}</h3>
+            <h3> <b>Rating</b>  : {{item.rating}}</h3>
+            <h3> <b>Stock</b> : {{item.stock}}</h3>
+            <div class="quantity-group">
+                <button class="btnincrease btn btn-danger" (click)="handleQuantity('min')" ><i class="fa-solid fa-minus"></i></button>&nbsp;
+                <b style="font-size:x-large;">{{productQuantity}}</b> &nbsp;
+                <button class="btnincrease btn btn-success" (click)="handleQuantity('plus')"><i class="fa-solid fa-plus"></i></button>
+            </div>
+            <br>
+            <!-- <button mat-raised-button color="primary" class="form-button" >Buy Now</button> &nbsp; -->
+            <button *ngIf="removeCart" mat-raised-button color="primary" class="form-button" (click)="removeToCart(item.id)">Remove to Cart</button>
+            <button *ngIf="!removeCart" mat-raised-button color="primary" class="form-button" (click)="AddToCart()" >Add to Cart</button>
+        </div>
+    </div>

@@ -1,0 +1,15 @@
+<div class="bost" >
+    <div class="main" *ngFor="let item of productsObj">
+        <div class="card text-center" style="width: 18rem;" >
+            <img class="card-img-top" src={{item.thumbnail}} alt="Card image cap" height="230" width="180">
+            <div class="card-body">
+                <h2 class="card-title"><b>{{item.title}}</b></h2>
+                <p class="card-text">${{item.price}}</p>
+                <p class="card-text">{{item.discountPercentage}}% Off</p>
+            <div class="buttons">    
+                <a mat-raised-button color="primary" [routerLink]="['/details',item.id]">Details</a>
+                <a mat-raised-button color="primary" [routerLink]="['/buy', item.id]">Buy</a>
+            </div>
+            </div>
+    </div>
+    </div>

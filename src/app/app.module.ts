@@ -1,0 +1,113 @@
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import {HttpClientModule} from '@angular/common/http' ;
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ProductsComponent } from './components/products/products.component';
+import { DetailsComponent } from './components/products/details/details.component';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatIconModule} from '@angular/material/icon';
+import {MatButtonModule} from '@angular/material/button';
+import { RouterModule, Routes } from '@angular/router';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import {MatListModule} from '@angular/material/list';
+import {MatDividerModule} from '@angular/material/divider';
+import {MatExpansionModule} from '@angular/material/expansion';
+import { HomepageComponent } from './components/homepage/homepage.component';
+import { LoginpageComponent } from './components/loginpage/loginpage.component';
+import { BuypageComponent } from './components/buypage/buypage.component';
+import { SmartphonesComponent } from './components/products/smartphones/smartphones.component';
+import { LaptopsComponent } from './components/products/laptops/laptops.component';
+import { FragrancesComponent } from './components/products/fragrances/fragrances.component';
+import { SkincareComponent } from './components/products/skincare/skincare.component';
+import { GroceriesComponent } from './components/products/groceries/groceries.component';
+import { HomedecorationComponent } from './components/products/homedecoration/homedecoration.component';
+import { AuthGuard } from './auth.guard';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import { HeaderComponent } from './components/header/header.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { CartComponent } from './components/cart/cart.component';
+import { UserAuthComponent } from './components/user-auth/user-auth.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { CheckoutComponent } from './components/checkout/checkout.component';
+import { NgToastModule } from 'ng-angular-popup';
+import { MyOrderComponent } from './components/my-order/my-order.component';
+import {MatSelectModule} from '@angular/material/select';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+
+
+
+  const appRout : Routes =[
+    {path:'' ,pathMatch:'full', redirectTo:'/user-auth' },
+    {path:'login', component:LoginpageComponent},
+    {path:"products" , component:ProductsComponent},
+    {path:"details/: id" , component:DetailsComponent},
+    {path:"home" , component:HomepageComponent},
+    {path:"404" , component:LoginpageComponent},
+    {path:"buy/: id" , component:BuypageComponent},
+    {path:"smartphones" , component:SmartphonesComponent},
+    {path:"laptops" , component:LaptopsComponent},
+    {path:"fragrances" , component:FragrancesComponent},
+    {path:"skincare" , component:SkincareComponent},
+    {path:"groceries" , component:GroceriesComponent},
+    {path:"homedecoration" , component:HomedecorationComponent},
+    {path:"cart", component:CartComponent},
+    {path:"user-auth", component:UserAuthComponent},
+    {path:"checkout", component:CheckoutComponent},
+    {path:"my-orders", component:MyOrderComponent},
+    {path:"product-Manage", component:ProductsComponent},
+    {path:'**', redirectTo:'/404'},
+  ]
+  
+  @NgModule({
+    declarations: [
+    AppComponent,
+    ProductsComponent,
+    DetailsComponent,
+    HomepageComponent,
+    LoginpageComponent,
+    BuypageComponent,
+    SmartphonesComponent,
+    LaptopsComponent,
+    FragrancesComponent,
+    SkincareComponent,
+    GroceriesComponent,
+    HomedecorationComponent,
+    HeaderComponent,
+    FooterComponent,
+    CartComponent,
+    UserAuthComponent,
+    CheckoutComponent,
+    MyOrderComponent,
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    HttpClientModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatButtonModule,
+    RouterModule.forRoot(appRout),
+    MatSidenavModule,
+    MatSlideToggleModule,
+    MatListModule,
+    MatDividerModule,
+    MatExpansionModule,
+    FormsModule,
+    MatFormFieldModule,
+    CommonModule,
+    NgbModule,
+    NgToastModule,
+    MatSelectModule,
+    MatProgressSpinnerModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }

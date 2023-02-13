@@ -1,0 +1,38 @@
+<div class="spinner_container"><mat-spinner *ngIf="showSpinner"></mat-spinner></div>
+<div class="checkout">
+  <div class="myDiv">
+  <h1>Checkout</h1>
+  <p class="message-p">{{orderMsg}}</p>
+  <div class="row">
+    <div class="col-sm-7">
+      <h3>Add shipping address</h3>
+      <form #orderData="ngForm" class="common-form" (ngSubmit)="orderNow(orderData.value)">
+        <input type="text" class="form-input" name="name" placeholder="Enter Your name" ngModel /> <br>
+        <input type="text" id="name" class="form-input" name="email" placeholder="Enter User Email" ngModel /> <br>
+        
+        <input type="text" class="form-input" name="address" placeholder="Enter User Address" ngModel /> <br>
+        
+        <input type="text" class="form-input" name="contact" placeholder="Enter contact details" ngModel /> <br>
+        <br>
+        <button mat-raised-button color="primary" class="form-button">Order Now</button>
+      </form>
+
+
+    </div> <br>
+    <div class="col-sm-5">
+      <h3>Total Amount: &#8377; {{totalPrice}}</h3>
+      <h4><b>Payment Method</b></h4>
+      <mat-form-field appearance="fill">
+        <mat-label>Pay Method</mat-label>
+        <mat-select>
+          <mat-option *ngFor="let typeDeliver of paymentType" [value]="typeDeliver.value">
+            {{typeDeliver.viewValue}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+</div>
+</div>
+
+

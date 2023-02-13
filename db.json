@@ -1,0 +1,156 @@
+{
+  "users": [
+    {
+      "name": "nishant",
+      "email": "nishant@test",
+      "password": "7900",
+      "id": 1
+    },
+    {
+      "name": "abc",
+      "email": "abc@test.com",
+      "password": "123456",
+      "id": 2
+    }
+  ],
+  "cart": [
+    {
+      "title": "iPhone X",
+      "description": "SIM-Free, Model A19211 6.5-inch Super Retina HD display with OLED technology A12 Bionic chip with ...",
+      "price": 899,
+      "discountPercentage": 17.94,
+      "rating": 4.44,
+      "stock": 34,
+      "brand": "Apple",
+      "category": "smartphones",
+      "thumbnail": "https://i.dummyjson.com/data/products/2/thumbnail.jpg",
+      "images": [
+        "https://i.dummyjson.com/data/products/2/1.jpg",
+        "https://i.dummyjson.com/data/products/2/2.jpg",
+        "https://i.dummyjson.com/data/products/2/3.jpg",
+        "https://i.dummyjson.com/data/products/2/thumbnail.jpg"
+      ],
+      "quantity": 1,
+      "userId": 1,
+      "productId": 2,
+      "id": 1
+    },
+    {
+      "title": "Skin Beauty Serum.",
+      "description": "Product name: rorec collagen hyaluronic acid white face serum riceNet weight: 15 m",
+      "price": 46,
+      "discountPercentage": 10.68,
+      "rating": 4.42,
+      "stock": 54,
+      "brand": "ROREC White Rice",
+      "category": "skincare",
+      "thumbnail": "https://i.dummyjson.com/data/products/19/thumbnail.jpg",
+      "images": [
+        "https://i.dummyjson.com/data/products/19/1.jpg",
+        "https://i.dummyjson.com/data/products/19/2.jpg",
+        "https://i.dummyjson.com/data/products/19/3.png",
+        "https://i.dummyjson.com/data/products/19/thumbnail.jpg"
+      ],
+      "quantity": 1,
+      "userId": 1,
+      "productId": 19,
+      "id": 2
+    },
+    {
+      "title": "Hyaluronic Acid Serum",
+      "description": "L'OrÃ©al Paris introduces Hyaluron Expert Replumping Serum formulated with 1.5% Hyaluronic Acid",
+      "price": 19,
+      "discountPercentage": 13.31,
+      "rating": 4.83,
+      "stock": 110,
+      "brand": "L'Oreal Paris",
+      "category": "skincare",
+      "thumbnail": "https://i.dummyjson.com/data/products/16/thumbnail.jpg",
+      "images": [
+        "https://i.dummyjson.com/data/products/16/1.png",
+        "https://i.dummyjson.com/data/products/16/2.webp",
+        "https://i.dummyjson.com/data/products/16/3.jpg",
+        "https://i.dummyjson.com/data/products/16/4.jpg",
+        "https://i.dummyjson.com/data/products/16/thumbnail.jpg"
+      ],
+      "quantity": 1,
+      "userId": 1,
+      "productId": 16,
+      "id": 3
+    },
+    {
+      "title": "MacBook Pro",
+      "description": "MacBook Pro 2021 with mini-LED display may launch between September, November",
+      "price": 1749,
+      "discountPercentage": 11.02,
+      "rating": 4.57,
+      "stock": 83,
+      "brand": "Apple",
+      "category": "laptops",
+      "thumbnail": "https://i.dummyjson.com/data/products/6/thumbnail.png",
+      "images": [
+        "https://i.dummyjson.com/data/products/6/1.png",
+        "https://i.dummyjson.com/data/products/6/2.jpg",
+        "https://i.dummyjson.com/data/products/6/3.png",
+        "https://i.dummyjson.com/data/products/6/4.jpg"
+      ],
+      "quantity": 1,
+      "userId": 1,
+      "productId": 6,
+      "id": 4
+    },
+    {
+      "title": "Samsung Galaxy Book",
+      "description": "Samsung Galaxy Book S (2020) Laptop With Intel Lakefield Chip, 8GB of RAM Launched",
+      "price": 1499,
+      "discountPercentage": 4.15,
+      "rating": 4.25,
+      "stock": 50,
+      "brand": "Samsung",
+      "category": "laptops",
+      "thumbnail": "https://i.dummyjson.com/data/products/7/thumbnail.jpg",
+      "images": [
+        "https://i.dummyjson.com/data/products/7/1.jpg",
+        "https://i.dummyjson.com/data/products/7/2.jpg",
+        "https://i.dummyjson.com/data/products/7/3.jpg",
+        "https://i.dummyjson.com/data/products/7/thumbnail.jpg"
+      ],
+      "quantity": 1,
+      "userId": 1,
+      "productId": 7,
+      "id": 5
+    }
+  ],
+  "orders": [
+    {
+      "name": "nishant",
+      "email": "nishant@test",
+      "address": "sector 79 mohali",
+      "contact": "7894561230",
+      "totalPrice": 38328,
+      "userId": 1,
+      "thumbnail": "",
+      "id": 1
+    },
+    {
+      "name": "Amit kumar",
+      "email": "nishant@test",
+      "address": "sector 79 mohali",
+      "contact": "delhi",
+      "totalPrice": 59118,
+      "userId": 1,
+      "thumbnail": "",
+      "id": 2
+    },
+    {
+      "name": "nishant",
+      "email": "nishant@test",
+      "address": "sector 79 mohali",
+      "contact": "delhi",
+      "totalPrice": 38328,
+      "userId": 1,
+      "thumbnail": "",
+      "id": 3
+    }
+  ]
+}
