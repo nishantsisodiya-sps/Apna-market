@@ -9,8 +9,11 @@ export interface productsObj{
     brand: string,
     category: string ,
     thumbnail: string,
-    quantity : undefined | number
-    productId:undefined|number
+    quantity : undefined | number,
+    productId:undefined|number,
+    images : [
+        
+    ]
 }
 export interface signUp {
     name: string;

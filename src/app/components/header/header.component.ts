@@ -21,7 +21,6 @@ export class HeaderComponent implements OnInit {
     private route : Router , private popUp: NgToastService , private appService:AppServiceService) { }
 
   ngOnInit(): void {
-   
     
     this.ifd()
     this.products.cartData.subscribe((items)=>{
@@ -78,7 +77,13 @@ export class HeaderComponent implements OnInit {
   }
 
   hideSearch(){
-    // this.searchResult = undefined
+    this.searchResult = undefined
+  }
+
+
+  menuToggle() {
+    const toggleMenu = document.querySelector(".menu");
+   toggleMenu && toggleMenu.classList.toggle("active");
   }
 
 }

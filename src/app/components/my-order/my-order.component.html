@@ -25,10 +25,11 @@
             <span>#{{order.id}}</span>
         </div>
         <div class="col-sm-2">
-            <span>${{order.totalPrice}}</span>
+            <span>&#8377; {{order.totalPrice}}</span>
         </div>
         <div class="col-sm-2">
-            <span>In Progress</span>
+            <span *ngIf="pending">In Progress</span>
+            <span *ngIf="!pending">Delivered</span>
         </div>
         <div class="col-sm-2">
             <button mat-raised-button color="warn" class="form-button" (click)="cancelOrder(order.id)" >Cancel Order</button>

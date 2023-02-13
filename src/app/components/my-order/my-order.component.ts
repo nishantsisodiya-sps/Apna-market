@@ -18,11 +18,13 @@ export class MyOrderComponent implements OnInit {
     total: 0
   }
   cartData: cart[] | undefined;
+  pending = true
   constructor(private _fetchApi : ProductService , private popUp : NgToastService) { }
 
   ngOnInit(): void {
     this.getOrderList()
 }
+
 cancelOrder(orderId:number|undefined){
   console.log(orderId)
   orderId && this._fetchApi.cancleOrder(orderId).subscribe((result)=>{
@@ -30,8 +32,18 @@ cancelOrder(orderId:number|undefined){
       this.getOrderList()
   })
 }
+
+
+
+
 getOrderList(){
   this._fetchApi.myOrders().subscribe((result)=>{
     this.orderData = result
   })
-}}
+  setTimeout(() => {
+    this.pending = false
+  }, 100000);
+}
+
+
+}

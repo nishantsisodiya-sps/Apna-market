@@ -29,5 +29,7 @@ export class AppServiceService {
       return this.http.get<any>(`https://dummyjson.com/products/search?q=${query}`);
     }
 
-    
+    myImages(id:number){
+      return this.http.get<any>('https://i.dummyjson.com/data/products/'+id)
+    }
 }
