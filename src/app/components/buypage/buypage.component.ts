@@ -17,6 +17,10 @@ export class BuypageComponent implements OnInit {
   products: productsObj[] = []
   cartData: productsObj | undefined;
   removeCart= false;
+
+ 
+  arr : [] = []
+
   constructor(private _fetchapi: AppServiceService,
     private ActivatedRoute: ActivatedRoute,
     private _productService: ProductService , private popUp:NgToastService) { }
@@ -26,6 +30,14 @@ export class BuypageComponent implements OnInit {
       this._fetchapi.getSingleProduct(pId).subscribe(res => {
         this.products[0] = res
         
+        let image = this.products[0].images
+        image.forEach(item=>{
+          this.arr.push(item);
+        })
+
+
+
+
         
         let cartData = localStorage.getItem('localCart')
         if (pId && cartData) {
@@ -63,6 +75,10 @@ export class BuypageComponent implements OnInit {
     }
   }
 
+
+  changeImage(element:any,i:any){
+    this.products[0].thumbnail = element.arr[i]
+  }
 
   AddToCart() {
     this.popUp.info({detail:"Added to Cart" , summary: "Product added successfully", duration:2000})

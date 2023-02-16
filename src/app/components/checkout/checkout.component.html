@@ -1,38 +1,96 @@
-<div class="spinner_container"><mat-spinner *ngIf="showSpinner"></mat-spinner></div>
+<!-- <div class="spinner_container"><mat-spinner *ngIf="showSpinner"></mat-spinner></div>
 <div class="checkout">
   <div class="myDiv">
-  <h1>Checkout</h1>
-  <p class="message-p">{{orderMsg}}</p>
-  <div class="row">
-    <div class="col-sm-7">
-      <h3>Add shipping address</h3>
-      <form #orderData="ngForm" class="common-form" (ngSubmit)="orderNow(orderData.value)">
-        <input type="text" class="form-input" name="name" placeholder="Enter Your name" ngModel /> <br>
-        <input type="text" id="name" class="form-input" name="email" placeholder="Enter User Email" ngModel /> <br>
-        
-        <input type="text" class="form-input" name="address" placeholder="Enter User Address" ngModel /> <br>
-        
-        <input type="text" class="form-input" name="contact" placeholder="Enter contact details" ngModel /> <br>
-        <br>
-        <button mat-raised-button color="primary" class="form-button">Order Now</button>
+    <h1>Checkout</h1>
+    <p class="message-p">{{orderMsg}}</p>
+    <div class="row">
+      <div class="col-sm-7">
+        <h3>Add shipping address</h3>
+        <form #orderData="ngForm" class="common-form" (ngSubmit)="orderNow(orderData.value)">
+          <input type="text" class="form-input" name="name" placeholder="Enter Your name" ngModel /> <br>
+          <input type="text" id="name" class="form-input" name="email" placeholder="Enter User Email" ngModel /> <br>
+          <input type="text" class="form-input" name="address" placeholder="Enter User Address" ngModel /> <br>
+          <input type="text" class="form-input" name="contact" placeholder="Enter contact details" ngModel /> <br>
+          <br>
+          <button mat-raised-button color="primary" class="form-button">Order Now</button>
+        </form>
+
+      </div> <br>
+      <div class="col-sm-5">
+        <h3>Total Amount: &#8377; {{totalPrice}}</h3>
+        <h4><b>Payment Method</b></h4>
+        <mat-form-field appearance="fill">
+          <mat-label>Pay Method</mat-label>
+          <mat-select>
+            <mat-option *ngFor="let typeDeliver of paymentType" [value]="typeDeliver.value">
+              {{typeDeliver.viewValue}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+
+<div class="mainbox">
+  <div class="wrapper">
+    <div class="container">
+      <form action="">
+        <h1>
+          <i class="fas fa-shipping-fast"></i>
+          Shipping Details
+        </h1>
+        <div class="name">
+          <div>
+            <label for="f-name">First</label>
+            <input type="text" name="f-name">
+          </div>
+          <div>
+            <label for="l-name">Last</label>
+            <input type="text" name="l-name">
+          </div>
+        </div>
+        <div class="street">
+          <label for="name">Street</label>
+          <input type="text" name="address">
+        </div>
+        <div class="address-info">
+          <div>
+            <label for="city">City</label>
+            <input type="text" name="city">
+          </div>
+          <div>
+            <label for="state">State</label>
+            <input type="text" name="state">
+          </div>
+          <div>
+            <label for="zip">Zip</label>
+            <input type="text" name="zip">
+          </div>
+        </div>
+        <h1>
+          <i class="far fa-credit-card"></i> Payment Information
+        </h1>
+        <div class="cc-num">
+          <label for="card-num">Credit Card No.</label>
+          <input type="text" name="card-num">
+        </div>
+        <div class="cc-info">
+          <div>
+            <label for="card-num">Exp</label>
+            <input type="text" name="expire">
+          </div>
+          <div>
+            <label for="card-num">CCV</label>
+            <input type="text" name="security">
+          </div>
+        </div>
+        <div class="btns">
+          <button>Purchase</button>
+          <button>Back to cart</button>
+        </div>
       </form>
-
-
-    </div> <br>
-    <div class="col-sm-5">
-      <h3>Total Amount: &#8377; {{totalPrice}}</h3>
-      <h4><b>Payment Method</b></h4>
-      <mat-form-field appearance="fill">
-        <mat-label>Pay Method</mat-label>
-        <mat-select>
-          <mat-option *ngFor="let typeDeliver of paymentType" [value]="typeDeliver.value">
-            {{typeDeliver.viewValue}}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
     </div>
   </div>
 </div>
-</div>
-
-

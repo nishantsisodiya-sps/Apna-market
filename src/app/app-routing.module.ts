@@ -6,7 +6,6 @@ import { CheckoutComponent } from './components/checkout/checkout.component';
 import { HomepageComponent } from './components/homepage/homepage.component';
 import { LoginpageComponent } from './components/loginpage/loginpage.component';
 import { MyOrderComponent } from './components/my-order/my-order.component';
-import { DetailsComponent } from './components/products/details/details.component';
 import { FragrancesComponent } from './components/products/fragrances/fragrances.component';
 import { GroceriesComponent } from './components/products/groceries/groceries.component';
 import { HomedecorationComponent } from './components/products/homedecoration/homedecoration.component';
@@ -20,7 +19,6 @@ const routes: Routes = [
   {path:'' ,pathMatch:'full', redirectTo:'/user-auth' },
   {path:'login', component:LoginpageComponent},
   {path:"products" , component:ProductsComponent},
-  {path:"details/: id" , component:DetailsComponent},
   {path:"home" , component:HomepageComponent},
   {path:"404" , component:LoginpageComponent},
   {path:"buy/: id" , component:BuypageComponent},
