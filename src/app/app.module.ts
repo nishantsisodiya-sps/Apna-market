@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import {HttpClientModule} from '@angular/common/http' ;
-import { FormsModule } from '@angular/forms';
+import { FormsModule , ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -27,7 +27,6 @@ import { GroceriesComponent } from './components/products/groceries/groceries.co
 import { HomedecorationComponent } from './components/products/homedecoration/homedecoration.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { HeaderComponent } from './components/header/header.component';
-import { FooterComponent } from './components/footer/footer.component';
 import { CartComponent } from './components/cart/cart.component';
 import { UserAuthComponent } from './components/user-auth/user-auth.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -52,7 +51,6 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     GroceriesComponent,
     HomedecorationComponent,
     HeaderComponent,
-    FooterComponent,
     CartComponent,
     UserAuthComponent,
     CheckoutComponent,
@@ -66,7 +64,7 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     MatToolbarModule,
     MatIconModule,
     MatButtonModule,
-   
+    ReactiveFormsModule,
     MatSidenavModule,
     MatSlideToggleModule,
     MatListModule,

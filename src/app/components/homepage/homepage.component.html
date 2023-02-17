@@ -1,7 +1,7 @@
 <ngb-carousel *ngIf="mainProducts">
 	<ng-template *ngFor="let item of mainProducts" ngbSlide>
 		<div class="picsum-img-wrapper">
-			<a [routerLink]="['/details',item.id]"  ><img class="product-header-image" src="{{item.thumbnail}}" alt="Random first slide" /></a>
+			<a [routerLink]="['/buy', item.id]"  ><img class="product-header-image" src="{{item.thumbnail}}" alt="Random first slide" /></a>
 		</div>
 		<div class="carousel-caption">
 			<h3>{{item.title}}</h3>
@@ -17,7 +17,7 @@
       <div class="cards">
 
         <div class="card-items" routerLink="/smartphones">
-            <img src="https://i.dummyjson.com/data/products/3/1.jpg" alt="" width="200px">
+            <img src="https://source.unsplash.com/200x200/?smartphones" alt="" width="200px">
             <hr>
             <div class="lines">
                 <p class="text-center my-1"><b>Smartphones</b></p>
@@ -26,7 +26,7 @@
             </div>
         </div>
         <div class="card-items" routerLink="/laptops">
-            <img src="https://i.dummyjson.com/data/products/6/2.jpg" alt="" width="200px">
+            <img src="https://source.unsplash.com/200x200/?laptops" alt="" width="200px">
             <hr>
             <div class="lines">
                 <p class="text-center my-1"><b>Laptops</b></p>
@@ -35,7 +35,7 @@
             </div>
         </div>
         <div class="card-items" routerLink="/fragrances">
-            <img src="https://i.dummyjson.com/data/products/12/3.png" alt="" width="200px">
+            <img src="https://source.unsplash.com/200x200/?fragrances" alt="" width="200px">
             <hr>
             <div class="lines">
                 <p class="text-center my-1"><b>Perfumes</b></p>
@@ -44,7 +44,7 @@
             </div>
         </div>
         <div class="card-items" routerLink="/skincare"> 
-            <img src="https://i.dummyjson.com/data/products/17/thumbnail.jpg" alt="" width="200px">
+            <img src="https://source.unsplash.com/200x200/?skincare" alt="" width="200px">
             <hr>
             <div class="lines">
                 <p class="text-center my-1"><b>Skin Care</b></p>
@@ -53,7 +53,7 @@
             </div>
         </div>
         <div class="card-items" routerLink="/homedecoration">
-            <img src="https://i.dummyjson.com/data/products/26/thumbnail.jpg" alt="" width="200px">
+            <img src="https://source.unsplash.com/200x200/?homedecoration" alt="" width="200px">
             <hr>
             <div class="lines">
                 <p class="text-center my-1"><b>Home Decoration</b></p>

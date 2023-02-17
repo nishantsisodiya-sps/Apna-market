@@ -26,6 +26,8 @@ export class CartComponent implements OnInit {
     this.cartDetails()
   }
 
+  //Removing item from cart
+
   removeToCart(cartId: number | undefined) {
     cartId && this.cartData && this.product.removeCart(cartId)
       .subscribe((result)=>{
@@ -37,6 +39,8 @@ export class CartComponent implements OnInit {
         }
       })
   }
+
+  // Getting cart details
 
   cartDetails() {
     this.product.currentCart().subscribe((result) => {

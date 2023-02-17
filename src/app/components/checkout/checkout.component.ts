@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { NgToastService } from 'ng-angular-popup';
 import { ProductService } from 'src/app/service/product.service';
 import { cart, order, price, typeDeliver } from '../products/interface/data';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-checkout',
@@ -14,12 +15,16 @@ export class CheckoutComponent implements OnInit {
   cartData: cart[] | undefined;
   orderMsg: string | undefined;
   typeDeliver : typeDeliver[] = []
+
+// dropdown values for paymentType dropdown
+
   paymentType: typeDeliver[] = [
     {value: 'Pay on delivery', viewValue: 'Pay on delivery'},
     {value: 'UPI', viewValue: 'UPI'},
     {value: 'Credit card', viewValue: 'Credit card'},
     {value: 'Debit Card', viewValue: 'Debit Card'},
   ];
+
   priceSummary: price = {
     price: 0,
     discount: 0,
@@ -27,28 +32,46 @@ export class CheckoutComponent implements OnInit {
     delivery: 0,
     total: 0
   }
+
+  // Ng If values
+
   showSpinner : boolean = false
+  creditShow : boolean = false
+  debitShow : boolean = false
+  UPIShow : boolean = false
+
+  //Validation 
+
+  shipDetails = new FormGroup({
+    firstName :   new FormControl(null, [Validators.required]),
+    lastName :   new FormControl(null, [Validators.required]),
+    street :   new FormControl(null, [Validators.required]),
+    city :   new FormControl(null, [Validators.required]),
+    state :   new FormControl(null, [Validators.required]),
+    zip :   new FormControl(null, [Validators.required]),
+    paymentType :   new FormControl([Validators.required]),
+    upi : new FormControl(''),
+    CreditCardNo : new FormControl(null , [Validators.required , Validators.minLength(16), Validators.maxLength(16)]),
+    Creditexp : new FormControl(''),
+    Creditcvv : new FormControl(null , [Validators.required , Validators.minLength(3) , Validators.maxLength(3)]),
+    DebitcardNo : new FormControl(null , [Validators.required , Validators.minLength(16), Validators.maxLength(16)]),
+    Debitexp : new FormControl(''),
+    Debitcvv : new FormControl(null , [Validators.required , Validators.minLength(3) , Validators.maxLength(3)])
+  });
+
+
   constructor(private product : ProductService , private router : Router , private popUp: NgToastService) { }
 
   ngOnInit(): void {
-    this.product.currentCart().subscribe((result)=>{
-
-      let price = 0;
-      this.cartData = result;
-      result.forEach((item)=>{
-        if(item.quantity){
-          price = price + (+item.price * 80 * + item.quantity)
-        }
-        let discount = Math.round(price * item.discountPercentage / 100)
-        let delivery = 100;
-        let totalPrice = Math.round(price - discount + delivery)
-
-        this.totalPrice = totalPrice
-      })
-    })
+    this.totalPriceCalculate()
   }
 
-  orderNow(data : {email : string , address:string , contact : string}){
+  //Submitting form and sending data of cart to oder place API
+
+
+  orderNow(){
+    console.log(this.shipDetails.value);
+    let data = this.shipDetails.value
     let popup = new Promise((resolve , reject)=>{
         resolve(this.popUp.info({detail:"Order is being placed" , summary: "Order is being placed", duration:2000}))
     })
@@ -65,6 +88,9 @@ export class CheckoutComponent implements OnInit {
         id: undefined,
         thumbnail: "",
         productId: undefined,
+        email: '',
+        address: '',
+        contact: ''
       }  
       console.log(orderData)
 
@@ -91,9 +117,56 @@ export class CheckoutComponent implements OnInit {
             this.orderMsg = undefined;
             this.router.navigate(['/my-orders'])
           }, 5000);
-          
-        }
+          }
       })
     }
+  }
+  
+  // Navigation to cart function
+
+  backtoCart(){
+    this.router.navigate(['/cart'])
+  }
+
+  //Dropdown values show hide divs working function
+
+  onSelectionChange(event:any) {
+    if(event.value == "Credit card"){
+      this.creditShow = true
+      this.UPIShow = false
+      this.debitShow = false
+    }else if(event.value == "UPI"){
+      this.UPIShow = true
+      this.creditShow = false
+      this.debitShow = false
+    }else if(event.value == "Debit Card"){
+      this.debitShow = true
+      this.UPIShow = false
+      this.creditShow = false
+    }else{
+      this.debitShow = false
+      this.UPIShow = false
+      this.creditShow = false
+    }
+  }
+
+  //Price calculation getting from Cart
+
+  totalPriceCalculate(){
+    this.product.currentCart().subscribe((result)=>{
+
+      let price = 0;
+      this.cartData = result;
+      result.forEach((item)=>{
+        if(item.quantity){
+          price = price + (+item.price * 80 * + item.quantity)
+        }
+        let discount = Math.round(price * item.discountPercentage / 100)
+        let delivery = 100;
+        let totalPrice = Math.round(price - discount + delivery)
+
+        this.totalPrice = totalPrice
+      })
+    })
   }
 }

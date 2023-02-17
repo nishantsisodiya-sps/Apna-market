@@ -1,94 +1,141 @@
-<!-- <div class="spinner_container"><mat-spinner *ngIf="showSpinner"></mat-spinner></div>
-<div class="checkout">
-  <div class="myDiv">
-    <h1>Checkout</h1>
-    <p class="message-p">{{orderMsg}}</p>
-    <div class="row">
-      <div class="col-sm-7">
-        <h3>Add shipping address</h3>
-        <form #orderData="ngForm" class="common-form" (ngSubmit)="orderNow(orderData.value)">
-          <input type="text" class="form-input" name="name" placeholder="Enter Your name" ngModel /> <br>
-          <input type="text" id="name" class="form-input" name="email" placeholder="Enter User Email" ngModel /> <br>
-          <input type="text" class="form-input" name="address" placeholder="Enter User Address" ngModel /> <br>
-          <input type="text" class="form-input" name="contact" placeholder="Enter contact details" ngModel /> <br>
-          <br>
-          <button mat-raised-button color="primary" class="form-button">Order Now</button>
-        </form>
-
-      </div> <br>
-      <div class="col-sm-5">
-        <h3>Total Amount: &#8377; {{totalPrice}}</h3>
-        <h4><b>Payment Method</b></h4>
-        <mat-form-field appearance="fill">
-          <mat-label>Pay Method</mat-label>
-          <mat-select>
-            <mat-option *ngFor="let typeDeliver of paymentType" [value]="typeDeliver.value">
-              {{typeDeliver.viewValue}}
-            </mat-option>
-          </mat-select>
-        </mat-form-field>
-      </div>
-    </div>
-  </div>
-</div> -->
-
-
+<div class="loadingindicator"><mat-spinner *ngIf="showSpinner" mode="indeterminate" color="primary"></mat-spinner></div>
 <div class="mainbox">
   <div class="wrapper">
     <div class="container">
-      <form action="">
+      <form [formGroup]="shipDetails" (ngSubmit)="orderNow()">
         <h1>
           <i class="fas fa-shipping-fast"></i>
           Shipping Details
+          <h3>Total Price : {{totalPrice}}</h3>
         </h1>
         <div class="name">
           <div>
             <label for="f-name">First</label>
-            <input type="text" name="f-name">
+            <input type="text" name="f-name" formControlName="firstName">
+            <small class="text-danger"
+            *ngIf="!shipDetails.get('firstName')?.valid && shipDetails.get('firstName')?.touched">*Please
+            Enter First Name</small>
           </div>
           <div>
             <label for="l-name">Last</label>
-            <input type="text" name="l-name">
+            <input type="text" name="l-name" formControlName="lastName">
+            <small class="text-danger"
+            *ngIf="!shipDetails.get('lastName')?.valid && shipDetails.get('lastName')?.touched">*Please
+            Enter Last Name</small>
           </div>
         </div>
         <div class="street">
           <label for="name">Street</label>
-          <input type="text" name="address">
+          <input type="text" name="address" formControlName="street">
+          <small class="text-danger"
+            *ngIf="!shipDetails.get('street')?.valid && shipDetails.get('street')?.touched">*Please
+            Enter Street</small>
         </div>
         <div class="address-info">
           <div>
             <label for="city">City</label>
-            <input type="text" name="city">
+            <input type="text" name="city" formControlName="city">
+            <small class="text-danger"
+            *ngIf="!shipDetails.get('city')?.valid && shipDetails.get('city')?.touched">*Please
+            Enter Your city</small>
           </div>
           <div>
             <label for="state">State</label>
-            <input type="text" name="state">
+            <input type="text" name="state" formControlName="state">
+            <small class="text-danger"
+            *ngIf="!shipDetails.get('state')?.valid && shipDetails.get('state')?.touched">*Please
+            Enter Your state</small>
           </div>
           <div>
             <label for="zip">Zip</label>
-            <input type="text" name="zip">
+            <input type="text" name="zip" formControlName="zip">
+            <small class="text-danger"
+            *ngIf="!shipDetails.get('zip')?.valid && shipDetails.get('zip')?.touched">*Please
+            Enter Zip Code</small>
           </div>
         </div>
-        <h1>
-          <i class="far fa-credit-card"></i> Payment Information
-        </h1>
-        <div class="cc-num">
-          <label for="card-num">Credit Card No.</label>
-          <input type="text" name="card-num">
+
+        <div>
+          <label for="pay">Payment method &nbsp;</label>
+          <mat-form-field appearance="fill" id="pay">
+            <mat-label>Pay Method</mat-label>
+            <mat-select formControlName="paymentType" (selectionChange)="onSelectionChange($event)" required>
+              <mat-option *ngFor="let typeDeliver of paymentType" [value]="typeDeliver.value">
+                {{typeDeliver.viewValue}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
         </div>
-        <div class="cc-info">
-          <div>
-            <label for="card-num">Exp</label>
-            <input type="text" name="expire">
+
+
+          <!-- for credit card -->
+
+
+        <div *ngIf="creditShow">
+          <h1>
+            <i class="far fa-credit-card"></i> Payment Information
+          </h1>
+
+          <div class="cc-num">
+            <label for="card-num">Credit Card No.</label>
+            <input type="text" name="card-num" formControlName="CreditCardNo">
           </div>
-          <div>
-            <label for="card-num">CCV</label>
-            <input type="text" name="security">
+          <small class="text-danger"
+            *ngIf="!shipDetails.get('CreditCardNo')?.valid && shipDetails.get('CreditCardNo')?.touched">*Please
+            Enter Correct</small>
+          <div class="cc-info">
+            <div>
+              <label for="card-num">Exp</label>
+              <input type="text" name="expire" formControlName="Creditexp">
+            </div>
+            <div>
+              <label for="card-num">CCV</label>
+              <input type="text" name="security" formControlName="Creditcvv">
+            </div>
+          </div>
+
+
+        </div>
+
+
+        <!-- for Debit card -->
+
+        <div *ngIf="debitShow">
+          <h1>
+            <i class="far fa-credit-card"></i> Payment Information
+          </h1>
+
+          <div class="cc-num">
+            <label for="card-num">Debit Card No.</label>
+            <input type="text" name="card-num" formControlName="DebitcardNo">
+          </div>
+          <div class="cc-info">
+            <div>
+              <label for="card-num">Exp</label>
+              <input type="text" name="expire" formControlName="Debitexp">
+            </div>
+            <div>
+              <label for="card-num">CCV</label>
+              <input type="text" name="security" formControlName="Debitcvv">
+            </div>
           </div>
         </div>
+
+          <!-- for UPI -->
+
+        <div *ngIf="UPIShow">
+          <h1>
+            <i class="far fa-credit-card"></i> Payment Information
+          </h1>
+          <div class="cc-num">
+            <label for="UPI">UPI ID</label>
+            <input type="text" name="UPI" formControlName="upi">
+          </div>
+        </div>
+        <br>
         <div class="btns">
-          <button>Purchase</button>
-          <button>Back to cart</button>
+          <button type="submit">Purchase</button>
+          <button (click)="backtoCart()">Back to cart</button>
         </div>
       </form>
     </div>

@@ -62,15 +62,29 @@ export interface typeDeliver{
     viewValue : string
 }
 export interface orderedData{
-    email:string,
-    address:string,
-    contact:string,
+    firstName : string,
+    lastName : string,
+    street : string,
+    city : string,
+    state: string,
+    zip : number,
+    paymentType : any
     totalPrice:number,
     userId:string,
     id:number|undefined
     thumbnail: string,
-    name : string,
     productId : number | undefined
+    upi : number | string
+    CreditCardNo : number,
+    Creditexp : Date,
+    Creditcvv : number
+    DebitcardNo : number,
+    Debitexp : Date,
+    Debitcvv : number
 }
+
+
+
+
 
 

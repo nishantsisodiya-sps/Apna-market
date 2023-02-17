@@ -67,6 +67,8 @@ export class BuypageComponent implements OnInit {
     })
   }
 
+  // Product increase decrease 
+
   handleQuantity(val: string) {
     if (this.productQuantity < 20 && val === 'plus') {
       this.productQuantity += 1
@@ -75,10 +77,13 @@ export class BuypageComponent implements OnInit {
     }
   }
 
+  //Image change on click
 
   changeImage(element:any,i:any){
     this.products[0].thumbnail = element.arr[i]
   }
+
+  //Adding items to cart
 
   AddToCart() {
     this.popUp.info({detail:"Added to Cart" , summary: "Product added successfully", duration:2000})
@@ -107,6 +112,7 @@ export class BuypageComponent implements OnInit {
     }
   }
 
+  //Removing items from cart
 
   removeToCart(pId:number){
     this.popUp.warning({detail:"Removed from Cart" , summary: "Product Removed", duration:2000})
