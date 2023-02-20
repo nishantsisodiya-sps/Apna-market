@@ -18,8 +18,8 @@ export class AppServiceService {
       return this.http.get<any>('https://dummyjson.com/products/'+id+'');
     }
 
-    getItems(category:string){
-      return this.http.get<any>('https://dummyjson.com/products/category/'+category+'')
+    getItems(category:any){
+      return this.http.get<any>('https://dummyjson.com/products/category/'+category)
     }
 
     mainProduct(){
@@ -32,4 +32,9 @@ export class AppServiceService {
     myImages(id:number){
       return this.http.get<any>('https://i.dummyjson.com/data/products/'+id)
     }
+
+    getCategories():Observable<any>{
+      return this.http.get('https://dummyjson.com/products/categories');
+    }
+
 }

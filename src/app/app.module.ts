@@ -20,11 +20,6 @@ import { HomepageComponent } from './components/homepage/homepage.component';
 import { LoginpageComponent } from './components/loginpage/loginpage.component';
 import { BuypageComponent } from './components/buypage/buypage.component';
 import { SmartphonesComponent } from './components/products/smartphones/smartphones.component';
-import { LaptopsComponent } from './components/products/laptops/laptops.component';
-import { FragrancesComponent } from './components/products/fragrances/fragrances.component';
-import { SkincareComponent } from './components/products/skincare/skincare.component';
-import { GroceriesComponent } from './components/products/groceries/groceries.component';
-import { HomedecorationComponent } from './components/products/homedecoration/homedecoration.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { HeaderComponent } from './components/header/header.component';
 import { CartComponent } from './components/cart/cart.component';
@@ -45,11 +40,6 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     LoginpageComponent,
     BuypageComponent,
     SmartphonesComponent,
-    LaptopsComponent,
-    FragrancesComponent,
-    SkincareComponent,
-    GroceriesComponent,
-    HomedecorationComponent,
     HeaderComponent,
     CartComponent,
     UserAuthComponent,

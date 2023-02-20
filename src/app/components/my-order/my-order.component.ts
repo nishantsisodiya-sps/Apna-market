@@ -26,7 +26,7 @@ export class MyOrderComponent implements OnInit {
 }
 
 cancelOrder(orderId:number|undefined){
-  console.log(orderId)
+
   orderId && this._fetchApi.cancleOrder(orderId).subscribe((result)=>{
     this.popUp.warning({detail:"Order Canceled" , summary: "Order cancelled successfully", duration:2000})
       this.getOrderList()

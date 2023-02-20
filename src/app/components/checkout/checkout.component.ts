@@ -13,7 +13,6 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 export class CheckoutComponent implements OnInit {
   totalPrice: number | undefined;
   cartData: cart[] | undefined;
-  orderMsg: string | undefined;
   typeDeliver : typeDeliver[] = []
 
 // dropdown values for paymentType dropdown
@@ -49,13 +48,13 @@ export class CheckoutComponent implements OnInit {
     city :   new FormControl(null, [Validators.required]),
     state :   new FormControl(null, [Validators.required]),
     zip :   new FormControl(null, [Validators.required]),
-    paymentType :   new FormControl([Validators.required]),
+    paymentType :   new FormControl('',[Validators.required]),
     upi : new FormControl(''),
     CreditCardNo : new FormControl(null , [Validators.required , Validators.minLength(16), Validators.maxLength(16)]),
-    Creditexp : new FormControl(''),
+    Creditexp : new FormControl(null, [Validators.required]),
     Creditcvv : new FormControl(null , [Validators.required , Validators.minLength(3) , Validators.maxLength(3)]),
     DebitcardNo : new FormControl(null , [Validators.required , Validators.minLength(16), Validators.maxLength(16)]),
-    Debitexp : new FormControl(''),
+    Debitexp : new FormControl(null , [Validators.required]),
     Debitcvv : new FormControl(null , [Validators.required , Validators.minLength(3) , Validators.maxLength(3)])
   });
 
@@ -66,18 +65,21 @@ export class CheckoutComponent implements OnInit {
     this.totalPriceCalculate()
   }
 
+
   //Submitting form and sending data of cart to oder place API
 
 
   orderNow(){
-    console.log(this.shipDetails.value);
     let data = this.shipDetails.value
-    let popup = new Promise((resolve , reject)=>{
+
+    this.onSelectionChange(Event)
+
+    if(data.firstName && data.lastName && data.city && data.state && data.street !== null && data.paymentType !== ''){
+      let popup = new Promise((resolve , reject)=>{
         resolve(this.popUp.info({detail:"Order is being placed" , summary: "Order is being placed", duration:2000}))
     })
     this.showSpinner = true
     setTimeout( () => this.showSpinner = false, 5000 );
-    console.warn(data);
     let user = localStorage.getItem('user')
     let userId = user && JSON.parse(user).id;
     if(this.totalPrice){
@@ -92,8 +94,6 @@ export class CheckoutComponent implements OnInit {
         address: '',
         contact: ''
       }  
-      console.log(orderData)
-
       popup.then(()=>{
         this.popUp.success({detail:"Order placed" , summary: "Order placed successfully", duration:2000})
       })
@@ -111,15 +111,18 @@ export class CheckoutComponent implements OnInit {
               item.id && this.product.deleteMyCart(item.id);
             }, 600)
           })
-          this.orderMsg = "Order has been placed";
          
           setTimeout(() => {
-            this.orderMsg = undefined;
             this.router.navigate(['/my-orders'])
           }, 5000);
           }
       })
     }
+    }else{
+      alert("please fill all details correctly")
+    }
+
+   
   }
   
   // Navigation to cart function
@@ -135,6 +138,7 @@ export class CheckoutComponent implements OnInit {
       this.creditShow = true
       this.UPIShow = false
       this.debitShow = false
+
     }else if(event.value == "UPI"){
       this.UPIShow = true
       this.creditShow = false
@@ -148,6 +152,7 @@ export class CheckoutComponent implements OnInit {
       this.UPIShow = false
       this.creditShow = false
     }
+
   }
 
   //Price calculation getting from Cart

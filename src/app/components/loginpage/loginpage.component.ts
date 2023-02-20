@@ -12,25 +12,5 @@ export class LoginpageComponent implements OnInit {
   authError:String='';
   constructor(private user :UsersServiceService) { }
 
-  ngOnInit(): void {
-    // this.user.reloadusers
-  }
-  // signUp(data: signUp): void {
-  //   console.warn(data);
-  //   this.user.userSignUp(data);
-  // }
-  // login(data: signUp): void {
-  //   this.user.userLogin(data);
-  //   this.user.isLoginError.subscribe((isError)=>{
-  //     if(isError){
-  //       this.authError="Email or password is not correct";
-  //     }
-  //   })
-  // }
-  // openLogin(){
-  //   this.showLogin=true
-  // }
-  // openSignUp(){
-  //   this.showLogin=false
-  // }
+  ngOnInit(): void {}
 }

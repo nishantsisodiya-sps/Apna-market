@@ -11,11 +11,18 @@ export class HomepageComponent implements OnInit {
   title = 'E-Comm'
   mainProducts : undefined|productsObj[]
   productsObj : productsObj[] = []
+
+  categories : [] = []
+
   constructor( private _fetchApi:AppServiceService) { }
 
   ngOnInit(): void {
     this._fetchApi.mainProduct().subscribe((result)=>{
       this.mainProducts = result.products
+    })
+
+    this._fetchApi.getCategories().subscribe((result)=>{
+      this.categories = result
     })
   }
 

@@ -18,11 +18,11 @@ export class SmartphonesComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.fetchApi.getItems('smartphones').subscribe(res=>{
+    let para = this.ActivatedRoute.snapshot.paramMap.get(' item')
+    console.log(para);
+
+    this.fetchApi.getItems(para).subscribe(res=>{
       this.productsObj = res.products
-      console.log(this.productsObj)
     })
-
   }
-
 }

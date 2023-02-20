@@ -118,8 +118,7 @@ export class BuypageComponent implements OnInit {
     this.popUp.warning({detail:"Removed from Cart" , summary: "Product Removed", duration:2000})
     if(!localStorage.getItem('user')){
       this._productService.removeFromCart(pId)
-    }else{
-      console.warn(this.cartData?.id);      
+    }else{   
       this.cartData && this._productService.removeCart(this.cartData.id)
       .subscribe((result)=>{
         if(result){

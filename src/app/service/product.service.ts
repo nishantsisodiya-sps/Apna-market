@@ -31,7 +31,6 @@ export class ProductService {
       let items:productsObj[] = JSON.parse(CartData);
       items = items.filter((item:productsObj)=>{
         pId!==item.id
-        console.log(item)
       })
     }
   }
@@ -88,7 +87,6 @@ export class ProductService {
   GetOrderData(userId:any){
     return this.http.get<any>('http://localhost:3000/myOrderData/' + userId ,
     {observe: 'response',}).subscribe(result=>{
-    console.log(result)
     })
   }
 
