@@ -19,7 +19,6 @@ export class SmartphonesComponent implements OnInit {
   ngOnInit(): void {
 
     let para = this.ActivatedRoute.snapshot.paramMap.get(' item')
-    console.log(para);
 
     this.fetchApi.getItems(para).subscribe(res=>{
       this.productsObj = res.products

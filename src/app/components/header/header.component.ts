@@ -82,8 +82,7 @@ export class HeaderComponent implements OnInit {
 
 
   redirectToDetails(id:number){
-    this.route.navigate(['/details',id])
+    console.log(id);
+    this.route.navigate(['/buy', id])
   }
-
-
 }

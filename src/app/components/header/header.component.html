@@ -8,7 +8,7 @@
     <ul id="suggested-search" *ngIf="searchResult">
       <li *ngFor="let item of searchResult">
         <a (mousedown)="redirectToDetails(item.id)">{{item.title}}</a>
-      </li>
+      </li> 
     </ul>
   </div>
   <div [ngSwitch]="menuType">

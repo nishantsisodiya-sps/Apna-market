@@ -1,6 +1,6 @@
 .my-orders{
     margin-bottom: 100px;
-    margin-left: 2%;
+    /* margin-left: 2%; */
 }
 .my-orders h1{
     margin-top: 50px;
@@ -21,4 +21,11 @@
 .col-sm-2{
     display: flex;
     align-items: center;
+}
+.orderTable{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 2%;
+    min-height: 30em;
+    margin-left: 1%;
+    margin-right: 1%;
 }
