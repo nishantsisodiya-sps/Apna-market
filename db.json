@@ -15,47 +15,26 @@
   ],
   "cart": [
     {
-      "title": "Infinix INBOOK",
-      "description": "Infinix Inbook X1 Ci3 10th 8GB 256GB 14 Win10 Grey – 1 Year Warranty",
-      "price": 1099,
-      "discountPercentage": 11.83,
-      "rating": 4.54,
-      "stock": 96,
-      "brand": "Infinix",
-      "category": "laptops",
-      "thumbnail": "https://i.dummyjson.com/data/products/9/4.jpg",
+      "title": "Plastic Table",
+      "description": "V﻿ery good quality plastic table for multi purpose now in reasonable price",
+      "price": 50,
+      "discountPercentage": 4,
+      "rating": 4.01,
+      "stock": 136,
+      "brand": "Multi Purpose",
+      "category": "furniture",
+      "thumbnail": "https://i.dummyjson.com/data/products/34/thumbnail.jpg",
       "images": [
-        "https://i.dummyjson.com/data/products/9/1.jpg",
-        "https://i.dummyjson.com/data/products/9/2.png",
-        "https://i.dummyjson.com/data/products/9/3.png",
-        "https://i.dummyjson.com/data/products/9/4.jpg",
-        "https://i.dummyjson.com/data/products/9/thumbnail.jpg"
+        "https://i.dummyjson.com/data/products/34/1.jpg",
+        "https://i.dummyjson.com/data/products/34/2.jpg",
+        "https://i.dummyjson.com/data/products/34/3.jpg",
+        "https://i.dummyjson.com/data/products/34/4.jpg",
+        "https://i.dummyjson.com/data/products/34/thumbnail.jpg"
       ],
       "quantity": 1,
       "userId": 1,
-      "productId": 9,
+      "productId": 34,
       "id": 1
-    },
-    {
-      "title": "perfume Oil",
-      "description": "Mega Discount, Impression of Acqua Di Gio by GiorgioArmani concentrated attar perfume Oil",
-      "price": 13,
-      "discountPercentage": 8.4,
-      "rating": 4.26,
-      "stock": 65,
-      "brand": "Impression of Acqua Di Gio",
-      "category": "fragrances",
-      "thumbnail": "https://i.dummyjson.com/data/products/11/thumbnail.jpg",
-      "images": [
-        "https://i.dummyjson.com/data/products/11/1.jpg",
-        "https://i.dummyjson.com/data/products/11/2.jpg",
-        "https://i.dummyjson.com/data/products/11/3.jpg",
-        "https://i.dummyjson.com/data/products/11/thumbnail.jpg"
-      ],
-      "quantity": 1,
-      "userId": 1,
-      "productId": 11,
-      "id": 2
     }
   ],
   "orders": [
@@ -81,6 +60,29 @@
       "address": "",
       "contact": "",
       "id": 5
+    },
+    {
+      "firstName": "ds",
+      "lastName": "asd",
+      "street": "asd",
+      "city": "sdaf",
+      "state": "sdaf",
+      "zip": "98987",
+      "paymentType": "Pay on delivery",
+      "upi": "",
+      "CreditCardNo": null,
+      "Creditexp": null,
+      "Creditcvv": null,
+      "DebitcardNo": null,
+      "Debitexp": null,
+      "Debitcvv": null,
+      "totalPrice": 126103,
+      "userId": 1,
+      "thumbnail": "",
+      "email": "",
+      "address": "",
+      "contact": "",
+      "id": 6
     }
   ]
 }

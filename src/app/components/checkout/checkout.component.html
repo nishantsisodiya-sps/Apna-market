@@ -11,14 +11,14 @@
         <div class="name">
           <div>
             <label for="f-name">First</label>
-            <input type="text" name="f-name" formControlName="firstName">
+            <input type="text" NoSpecialCharacter name="f-name" formControlName="firstName">
             <small class="text-danger"
               *ngIf="!shipDetails.get('firstName')?.valid && shipDetails.get('firstName')?.touched">*Please
               Enter First Name</small>
           </div>
           <div>
             <label for="l-name">Last</label>
-            <input type="text" name="l-name" formControlName="lastName">
+            <input type="text" NoSpecialCharacter name="l-name" formControlName="lastName">
             <small class="text-danger"
               *ngIf="!shipDetails.get('lastName')?.valid && shipDetails.get('lastName')?.touched">*Please
               Enter Last Name</small>
@@ -26,7 +26,7 @@
         </div>
         <div class="street">
           <label for="name">Street</label>
-          <input type="text" name="address" formControlName="street">
+          <input type="text" NoSpecialCharacter name="address" formControlName="street">
           <small class="text-danger"
             *ngIf="!shipDetails.get('street')?.valid && shipDetails.get('street')?.touched">*Please
             Enter Street</small>
@@ -34,21 +34,21 @@
         <div class="address-info">
           <div>
             <label for="city">City</label>
-            <input type="text" name="city" formControlName="city">
+            <input type="text" NoSpecialCharacter name="city" formControlName="city">
             <small class="text-danger"
               *ngIf="!shipDetails.get('city')?.valid && shipDetails.get('city')?.touched">*Please
               Enter Your city</small>
           </div>
           <div>
             <label for="state">State</label>
-            <input type="text" name="state" formControlName="state">
+            <input type="text" NoSpecialCharacter name="state" formControlName="state">
             <small class="text-danger"
               *ngIf="!shipDetails.get('state')?.valid && shipDetails.get('state')?.touched">*Please
               Enter Your state</small>
           </div>
           <div>
             <label for="zip">Zip</label>
-            <input type="text" name="zip" formControlName="zip">
+            <input type="text" NoSpecialCharacter name="zip" formControlName="zip">
             <small class="text-danger" *ngIf="!shipDetails.get('zip')?.valid && shipDetails.get('zip')?.touched">*Please
               Enter Zip Code</small>
           </div>

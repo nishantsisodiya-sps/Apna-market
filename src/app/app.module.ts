@@ -30,6 +30,8 @@ import { NgToastModule } from 'ng-angular-popup';
 import { MyOrderComponent } from './components/my-order/my-order.component';
 import {MatSelectModule} from '@angular/material/select';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { PipePipe } from './service/pipe.pipe';
+import { NoSpecialDirective } from './service/no-special.directive';
 
   
   @NgModule({
@@ -45,6 +47,8 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     UserAuthComponent,
     CheckoutComponent,
     MyOrderComponent,
+    PipePipe,
+    NoSpecialDirective,
   ],
   imports: [
     BrowserModule,

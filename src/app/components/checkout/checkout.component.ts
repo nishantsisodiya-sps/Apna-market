@@ -75,9 +75,6 @@ export class CheckoutComponent implements OnInit {
     this.onSelectionChange(Event)
 
     if(data.firstName && data.lastName && data.city && data.state && data.street !== null && data.paymentType !== ''){
-      let popup = new Promise((resolve , reject)=>{
-        resolve(this.popUp.info({detail:"Order is being placed" , summary: "Order is being placed", duration:2000}))
-    })
     this.showSpinner = true
     setTimeout( () => this.showSpinner = false, 5000 );
     let user = localStorage.getItem('user')
@@ -94,10 +91,7 @@ export class CheckoutComponent implements OnInit {
         address: '',
         contact: ''
       }  
-      popup.then(()=>{
-        this.popUp.success({detail:"Order placed" , summary: "Order placed successfully", duration:2000})
-      })
-
+    
       this.cartData?.forEach((item) => {
         setTimeout(() => {
           item.id && this.product.getCartItem(item.id);
@@ -114,6 +108,7 @@ export class CheckoutComponent implements OnInit {
          
           setTimeout(() => {
             this.router.navigate(['/my-orders'])
+            this.popUp.success({detail:"Order placed" , summary: "Order placed successfully", duration:2000})
           }, 5000);
           }
       })
