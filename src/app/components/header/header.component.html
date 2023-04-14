@@ -1,4 +1,4 @@
-<nav class="nav">
+<!-- <nav class="nav">
   <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQItEZqYrF2jOoRe9RySqykHndE2xpGDwaIsA&usqp=CAU"
     alt="logo">
   <h1><a routerLink="/home">Apna Market</a> </h1>
@@ -32,4 +32,69 @@
         </ul>
           
   </div>
-</nav>
+</nav> -->
+
+
+ <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+      <form class="d-flex">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+      <div [ngSwitch]="menuType">
+
+        <!-- for user logout -->
+
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0" *ngSwitchCase="'default'">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Home</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Login/Sign-up</a>
+        </li>
+
+        <li class="nav-item">
+          <i class="fa" style="font-size:24px; position: relative; top: 6px;">&#xf07a;</i>
+        <span class='badge badge-warning' style="position: relative; top: 2px;" id='lblCartCount'>{{cartItems}}</span>
+        </li>
+
+      </ul>
+
+<!-- for users log in -->
+
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0" *ngSwitchCase="'user'">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Home</a>
+        </li>
+
+        <li class="nav-item">
+          <i class="fa-solid fa-user"></i>
+          <a class="nav-link active" aria-current="page" href="#">({{userName | titlecase}})</a>
+        </li>
+
+        <li class="nav-item">
+          <i class="fa" style="font-size:24px; position: relative; top: 6px;">&#xf07a;</i>
+        <span class='badge badge-warning' style="position: relative; top: 2px;" id='lblCartCount'>{{cartItems}}</span>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">My Orders</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Logout</a>
+        </li>
+
+      </ul>
+
+    </div>
+      
+    </div>
+  </div>
+</nav> 
