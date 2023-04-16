@@ -5,12 +5,6 @@
       "email": "nishant@test",
       "password": "7900",
       "id": 1
-    },
-    {
-      "name": "abc",
-      "email": "abc@test.com",
-      "password": "123456",
-      "id": 2
     }
   ],
   "cart": [

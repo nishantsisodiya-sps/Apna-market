@@ -43,24 +43,24 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
-      <form class="d-flex">
+      <form class="d-flex" style="margin: auto;">
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-success" type="submit">Search</button>
       </form>
-      <div [ngSwitch]="menuType">
+      <div class="ms-auto" [ngSwitch]="menuType">
 
         <!-- for user logout -->
 
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0" *ngSwitchCase="'default'">
+      <ul class="navbar-nav ms-auto mb-1" *ngSwitchCase="'default'">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
+          <a class="nav-link active" aria-current="page" routerLink="home" >Home</a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Login/Sign-up</a>
+          <a class="nav-link active" aria-current="page" routerLink="user-auth"> Login/Sign-up</a>
         </li>
 
-        <li class="nav-item">
+        <li class="nav-item" routerLink="cart">
           <i class="fa" style="font-size:24px; position: relative; top: 6px;">&#xf07a;</i>
         <span class='badge badge-warning' style="position: relative; top: 2px;" id='lblCartCount'>{{cartItems}}</span>
         </li>
@@ -69,32 +69,35 @@
 
 <!-- for users log in -->
 
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0" *ngSwitchCase="'user'">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0" *ngSwitchCase="'user'">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
+          <a class="nav-link active" aria-current="page" routerLink="home" >Home</a>
         </li>
 
         <li class="nav-item">
-          <i class="fa-solid fa-user"></i>
-          <a class="nav-link active" aria-current="page" href="#">({{userName | titlecase}})</a>
+          
+         <a  class="nav-link active" aria-current="page">({{userName | titlecase}})</a>
+          
         </li>
 
+        
         <li class="nav-item">
+          <a class="nav-link active" aria-current="page" routerLink="my-orders" >My Orders</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" click="logout()" >Logout</a>
+        </li>
+
+
+        <li class="nav-item" routerLink="cart" >
           <i class="fa" style="font-size:24px; position: relative; top: 6px;">&#xf07a;</i>
         <span class='badge badge-warning' style="position: relative; top: 2px;" id='lblCartCount'>{{cartItems}}</span>
         </li>
 
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">My Orders</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Logout</a>
-        </li>
-
       </ul>
 
-    </div>
+    </div> 
       
     </div>
   </div>
-</nav> 
+</nav>
